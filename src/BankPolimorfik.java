@@ -19,29 +19,57 @@ public class BankPolimorfik {
         System.out.println("\n========== AKHIR BULAN ==========");
 
         for (Rekening r : semua) {
+
             int biaya = r.potongBiayaAdmin();
+
             System.out.println(
-                    r.getNomor() + " biaya admin : " + Rekening.formatRupiah(biaya)
+                    r.getNomor() + " biaya admin : "
+                            + Rekening.formatRupiah(biaya)
             );
         }
 
         for (BerBunga b : berbunga) {
+
             int bunga = b.tambahBunga();
+
             System.out.println(
-                    b.getNomor() + " bunga : " + Rekening.formatRupiah(bunga)
+                    b.getNomor() + " bunga : "
+                            + Rekening.formatRupiah(bunga)
             );
         }
 
         System.out.println("\n========== REKENING AKHIR ==========");
+
         int totalDanaBank = 0;
+
         for (Rekening r : semua) {
+
             r.cetakInfo();
+
             totalDanaBank += r.getSaldo();
         }
 
-        System.out.println("--------------------");
+        System.out.println("-----------------------------------");
+
         System.out.println(
-                "Total dana bank : " + Rekening.formatRupiah(totalDanaBank)
+                "Total dana bank : "
+                        + Rekening.formatRupiah(totalDanaBank)
         );
+
+        /*
+         * PENGUJIAN ERROR ABSTRACT CLASS
+         *
+         * Rekening merupakan abstract class sehingga
+         * tidak dapat dibuat objek secara langsung.
+         *
+         * Pengujian dilakukan dengan mencoba membuat
+         * objek Rekening secara langsung.
+         *
+         * Expected error:
+         * Rekening is abstract; cannot be instantiated
+         *
+         * Kode pengujian sengaja tidak diaktifkan agar
+         * program utama tetap dapat dikompilasi.
+         */
     }
 }
